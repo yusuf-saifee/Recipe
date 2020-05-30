@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.saifee.recipe</groupId>
-    <artifactId>Spring</artifactId>
+    <artifactId>Recipe</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring</name>
+    <name>Recipe</name>
     <description>Spring 5 Recipe Project Using Spring Boot</description>
 
     <properties>
