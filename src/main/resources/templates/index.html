@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org">
+<h1 align="center">Recipe Details!!</h1>
 <head>
     <meta charset="UTF-8">
     <title th:text="'Recipe Page'">Index Page</title>
+    <table border="1" cellspacing="0"  align="center">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="recipe : ${recipes}">
+                <td th:text="${recipe.id}">
+                        123
+                </td>
+                <td th:text="${recipe.description}">
+                        Tasty Recipe
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </head>
 <body>
-<h1>My Recipe!</h1>
 </body>
 </html>
