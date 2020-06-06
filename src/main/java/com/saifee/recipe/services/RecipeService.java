@@ -1,4 +1,4 @@
-package com.saifee.recipe.service;
+package com.saifee.recipe.services;
 
 import com.saifee.recipe.domain.Recipe;
 
