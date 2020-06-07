@@ -1,6 +1,11 @@
 package com.saifee.recipe.bootstrap;
 
-import com.saifee.recipe.domain.*;
+import com.saifee.recipe.domain.Category;
+import com.saifee.recipe.domain.Difficulty;
+import com.saifee.recipe.domain.Ingredient;
+import com.saifee.recipe.domain.Notes;
+import com.saifee.recipe.domain.Recipe;
+import com.saifee.recipe.domain.UnitOfMeasure;
 import com.saifee.recipe.repositories.CategoryRepository;
 import com.saifee.recipe.repositories.RecipeRepository;
 import com.saifee.recipe.repositories.UnitOfMeasureRepository;
@@ -9,6 +14,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
