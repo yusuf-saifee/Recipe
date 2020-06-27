@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+<head>
+    <meta charset="UTF-8">
+    <title >Show Recipe</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3" style="margin-top: 20px">
+            <div class="card-group">
+                <div class="p-1 w-100">
+                    <div class="card">
+                        <div class="card-header" style="background-color: cadetblue">
+                            <h6 th:text="${recipe.description}">Description</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <h6>Categories: </h6>
+                                </div>
+                                <div class="col-md-3"><ul th:each="category: ${recipe.categories}">
+                                        <li th:text="${category.categoryName}"></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Image: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="#" atl="img">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Prep Time: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:text="${recipe.prepTime} + ' min'"></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Cook Time: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:text="${recipe.cookTime} + ' min'"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Servings: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:repalce="${recipe.servings}">-</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Difficulty: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:text="${recipe.difficulty}"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Source: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:text="${recipe.source}"></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>URL: </h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <span th:text="${recipe.url}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-1 w-100" th:if="${not #lists.isEmpty(recipe.ingredients)}">
+                    <div class="card">
+                        <div class="card-header" style="background-color: cadetblue">
+                            <h6>Ingredients</h6>
+                        </div>
+                        <div class="card-body">
+                            <div th:each="ingredient: ${recipe.ingredients}">
+                                <div th:text="${ingredient.description}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-1 w-100">
+                    <div class="card">
+                        <div class="card-header" style="background-color: cadetblue">
+                            <h6>Direction</h6>
+                        </div>
+                        <div class="card-body" style="white-space: pre-wrap;" th:text="${recipe.directions}">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="p-1 w-100">
+                    <div class="card" >
+                        <div class="card-header" style="background-color: cadetblue">
+                            <h6>Note</h6>
+                        </div>
+                        <div class="card-body"
+                             th:text="${recipe.notes.description}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
