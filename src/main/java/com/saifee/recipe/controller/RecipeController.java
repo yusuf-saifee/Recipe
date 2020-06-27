@@ -20,9 +20,9 @@ public class RecipeController {
     }
 
     @GetMapping({"/{id}/show"})
-    public String getIndexPage(Model model, @PathVariable String id){
+    public String showRecipe(Model model, @PathVariable String id){
         log.debug("Getting Recipe Page..");
-        model.addAttribute("recipe", recipeService.getRecipeById(Long.valueOf(id)).get());
+        model.addAttribute("recipe", recipeService.getRecipeById(Long.valueOf(id)));
         return "recipe/show";
     }
 }

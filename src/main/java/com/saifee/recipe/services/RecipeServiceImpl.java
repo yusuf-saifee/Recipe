@@ -29,7 +29,11 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> getRecipeById(Long recipeId) {
-        return recipeRepository.findById(recipeId);
+    public Recipe getRecipeById(Long recipeId) {
+        Optional<Recipe> recipeOptional = recipeRepository.findById(recipeId);
+        if(!recipeOptional.isPresent()){
+            throw new RuntimeException("Recipe Not Found.");
+        }
+        return recipeOptional.get();
     }
 }

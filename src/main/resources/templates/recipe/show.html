@@ -91,7 +91,7 @@
                         </div>
                         <div class="card-body">
                             <div th:each="ingredient: ${recipe.ingredients}">
-                                <div th:text="${ingredient.description}"></div>
+                                <div th:text="${ingredient.getDescription()}"></div>
                             </div>
                         </div>
                     </div>
