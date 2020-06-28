@@ -58,7 +58,7 @@
                                     <h6>Servings: </h6>
                                 </div>
                                 <div class="col-md-3">
-                                    <span th:repalce="${recipe.servings}">-</span>
+                                    <span th:text="${recipe.servings}">-</span>
                                 </div>
                                 <div class="col-md-3">
                                     <h6>Difficulty: </h6>
@@ -78,7 +78,7 @@
                                     <h6>URL: </h6>
                                 </div>
                                 <div class="col-md-3">
-                                    <span th:text="${recipe.url}"></span>
+                                    <a th:href="${recipe.url}">View Source</a>
                                 </div>
                             </div>
                         </div>

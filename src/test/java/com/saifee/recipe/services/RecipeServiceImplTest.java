@@ -1,5 +1,7 @@
 package com.saifee.recipe.services;
 
+import com.saifee.recipe.conveters.RecipeCommandToRecipe;
+import com.saifee.recipe.conveters.RecipeToRecipeCommand;
 import com.saifee.recipe.domain.Recipe;
 import com.saifee.recipe.repositories.RecipeRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -22,12 +24,18 @@ class RecipeServiceImplTest {
     RecipeServiceImpl recipeService;
 
     @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
     RecipeRepository recipeRepository;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @AfterEach

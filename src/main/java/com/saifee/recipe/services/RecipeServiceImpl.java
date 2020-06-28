@@ -1,5 +1,8 @@
 package com.saifee.recipe.services;
 
+import com.saifee.recipe.command.RecipeCommand;
+import com.saifee.recipe.conveters.RecipeCommandToRecipe;
+import com.saifee.recipe.conveters.RecipeToRecipeCommand;
 import com.saifee.recipe.domain.Recipe;
 import com.saifee.recipe.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +18,15 @@ import java.util.Set;
 public class RecipeServiceImpl implements RecipeService {
 
     RecipeRepository recipeRepository;
+    RecipeCommandToRecipe recipeCommandToRecipe;
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe,
+        RecipeToRecipeCommand recipeToRecipeCommand) {
+
         this.recipeRepository = recipeRepository;
+        this.recipeCommandToRecipe = recipeCommandToRecipe;
+        this.recipeToRecipeCommand = recipeToRecipeCommand;
     }
 
     @Override
@@ -35,5 +44,11 @@ public class RecipeServiceImpl implements RecipeService {
             throw new RuntimeException("Recipe Not Found.");
         }
         return recipeOptional.get();
+    }
+
+    @Override
+    public RecipeCommand saveRecipe(RecipeCommand recipeCommand) {
+        log.debug("Saving Recipe..");
+        return recipeToRecipeCommand.convert(recipeRepository.save(recipeCommandToRecipe.convert(recipeCommand)));
     }
 }

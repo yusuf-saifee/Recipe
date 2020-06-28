@@ -1,5 +1,6 @@
 package com.saifee.recipe.services;
 
+import com.saifee.recipe.command.RecipeCommand;
 import com.saifee.recipe.domain.Recipe;
 
 
@@ -9,4 +10,5 @@ public interface RecipeService {
 
     Set<Recipe> getRecipes();
     Recipe getRecipeById(Long recipeId);
+    RecipeCommand saveRecipe(RecipeCommand recipeCommand);
 }
