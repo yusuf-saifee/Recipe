@@ -2,6 +2,7 @@ package com.saifee.recipe.domain;
 
 import lombok.Data;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

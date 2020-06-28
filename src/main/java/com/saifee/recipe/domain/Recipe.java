@@ -2,6 +2,7 @@ package com.saifee.recipe.domain;
 
 import lombok.Data;
 
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -45,8 +46,10 @@ public @Data class Recipe {
     }
 
     public void setNotes(Notes notes) {
-        notes.setRecipe(this);
-        this.notes = notes;
+        if(notes!=null) {
+            notes.setRecipe(this);
+            this.notes = notes;
+        }
     }
 
     public Set<Ingredient> getIngredients() {
